@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <%- include simplehead %>
+        <meta charset="UTF-8">
+        <title>Error</title>
+        <script>
+        $(document).ready(function() {
+            errorPro(<%- JSON.stringify(error) %>);
+        });
+        </script>
+</head>
+
+<body>
+    <%- include header %>
+        <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
+            <div class="card hoverable" style="padding: 20px;">
+                <h4><%= message %></h4>
+                <h5><%= error.status %></h5>
+                <pre><%= error.stack %></pre>
+            </div>
+        </div>
+        <%- include footer %>
+</body>
+
+</html>

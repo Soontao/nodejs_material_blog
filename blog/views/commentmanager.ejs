@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <%- include simplehead %>
+</head>
+<html>
+
+<body>
+    <%- include header %>
+        <div class="container" style="margin-top: 30px; margin-bottom: 30px;">
+            <div class="card hoverable"style="
+    padding: 20px;
+">
+                <br>
+                <div>
+                    <table class="bordered responsive-table" style="
+    margin-left: 20px;
+    margin-right: 20px;
+">
+                        <thead>
+                            <tr>
+                                <th data-field="id">评论ID</th>
+                                <th data-field="title">评论博客</th>
+                                <th data-field="comment">评论内容长度</th>
+                                <th data-field="nickname">评论用户</th>
+                                <th data-field="createdate">创建日期</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% comments.forEach(function(comment){ %>
+                                <tr>
+                                    <td>
+                                        <%= comment.id %>
+                                    </td>
+                                    <td>
+                                        <%= comment.title %>
+                                    </td>
+                                    <td>
+                                        <%= comment.comment.length %>
+                                    </td>
+                                    <td>
+                                        <%= comment.nickname %>
+                                    </td>
+                                    <td>
+                                        <%= new Date(comment.createdate).toLocaleString() %>
+                                    </td>
+                                    <td>
+                                        <a onclick="deletecomment(<%= comment.id %>)" class="btn waves-effect waves-light red">删除</a>
+                                    </td>
+                                </tr>
+                                <% });%>
+                        </tbody>
+                    </table>
+                </div>
+                <div></div>
+                <br>
+            </div>
+
+          <% if(page){ %>
+        <%- include page %>
+            <% } %>
+        </div>
+        <%- include footer %>
+</body>
+
+</html>

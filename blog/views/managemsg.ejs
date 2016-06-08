@@ -1,0 +1,19 @@
+    <div class="collapsible-header active">管理消息</div>
+    <div class="collapsible-body">
+        <p>
+            <br> 服务器平台
+            <%= process.platform %>
+                <br> 服务器时间
+                <%= Date() %>
+                    <br> 进程号
+                    <%= process.pid %>
+                        <br> 内存占用
+                        <%= JSON.stringify(process.memoryUsage())  %>
+                            <br> 运行时间
+                            <%= process.uptime() %>
+                                <br> NodeJS 版本
+                                <%= process.version%>
+                                    <br> 项目位置
+                                    <%= process.cwd() %>
+                                        <br>
+    </div>

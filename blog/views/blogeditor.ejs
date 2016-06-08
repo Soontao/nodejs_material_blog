@@ -1,0 +1,22 @@
+    <div class="container row">
+        <div class="card hoverable truncate "
+            style='padding-right: 20px; padding-bottom: 5px; padding-top: 10px; padding-left: 20px;'>
+            <div class="input-field col12">
+                <input id="newpagetitle" name="title" type="text"  value="<%= article.title %>"
+                    style="font-size: 24px" >
+                </input> <label class="active"
+                    for="newpagetitle">Page Title</label>
+            </div>
+        </div>
+        <div class="card hoverable col12">
+        <script id="editor" type="text/plain" class="col12" style="width:100%">
+            
+            <%- article.content %>
+        </script>
+
+        </div>
+        <div class=" center">
+            <button id="btnsave" class="btn waves-effect waves-light"
+                type="submit" name="action">保存</button>
+        </div>
+    </div>

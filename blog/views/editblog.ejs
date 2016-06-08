@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+<!-- CSS-->
+<%- include simplehead %>
+<link href="/umeditor/themes/default/_css/umeditor.css" type="text/css" rel="stylesheet">
+<title>Blog Edit</title>
+<script type="text/javascript" charset="utf-8"
+    src="/umeditor/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8"
+    src="/umeditor/editor_api.js"></script>
+<script>
+    $(document).ready(function() {
+         var editor=UM.getEditor('editor');
+         $("#btnsave").click(function(){
+            $.post("<%= '/articles/editblog/'+article.id %>",{title:$("#newpagetitle").val(),content:UM.getEditor("editor").getContent()},function(data,status){
+            if(status)
+                {
+                    // 重定向
+                    window.location="<%= '/articles/blog/'+article.id %>"
+                }
+            else 
+                alert("失败")
+         })
+         })
+    });
+    </script>
+</head>
+
+<body>
+    <%- include header %>
+    <%- include blogeditor %>
+    <%- include footer %>
+</body>
+
+</html>

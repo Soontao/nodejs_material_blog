@@ -1,0 +1,20 @@
+                            <div class="collapsible-header active">用户信息</div>
+                            <div class="collapsible-body">
+                                <p>
+                                        用户名
+                                        <%= sessionuser.username %>
+                                        <br> 用户昵称
+                                        <%= sessionuser.nickname %>
+                                        <br> 用户类型
+                                        <%= sessionuser.usertype %>
+                                        <br> 上次登录
+                                        <%= new Date(sessionuser.lastlogindate).toLocaleString() %>
+                                        <br> 上次登录IP
+                                        <%= sessionuser.lastloginip %>
+                                        <br> 备注
+                                        <%= sessionuser.comment %>
+                                        <br>   <a href=<%= "/admin/users/update/" + sessionuser.id %> >点此修改</a>
+
+                                </p>
+
+                            </div>
