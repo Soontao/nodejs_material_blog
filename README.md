@@ -1,6 +1,6 @@
 # NBlog
 
-这是一个NodeJS项目
+这是一个NodeJS博客项目
 
 基于
 Express框架
@@ -9,6 +9,8 @@ ORM2框架
 以及 等等.
 
 使用的数据库为SQLite
+但是由于ORM对于SQL的封装
+理论上切换到MySQL也没有什么问题.
 
 # 部署
 

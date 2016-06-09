@@ -11,13 +11,14 @@ var fs = require('fs');
 var multer = require('multer');
 var helmet = require('helmet')
 
-
+// 一些Controller
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var admin = require("./routes/admin");
 var articles = require("./routes/articles");
 var auth = require("./routes/auth");
 
+// 配置文件
 var ormsetup = require("./lib/db");
 var authsetup = require("./lib/auth");
 var renderp = require("./lib/renderp");
@@ -30,7 +31,8 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('env', 'development');
+// 注释掉以关闭开发模式
+// app.set('env', 'development');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());

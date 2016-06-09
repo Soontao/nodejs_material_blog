@@ -17,11 +17,11 @@ module.exports = function auth(app) {
         //session user或者未注册用户
         var user = req.session.user || {
             usertype: 0
-        }
-
-        if (url.startsWith("/js") || url.startsWith("/css") || url.startsWith("/images") || url.startsWith("/umeditor") || url == "/") {
+        };
+        // 判断静态文件
+        if (url.startsWith("/js") || url.startsWith("/css") || url.startsWith("/images") || url.startsWith("/umeditor") || url == "/" || url == "/favicon.ico") {
             isStatic = true;
-        }
+        };
         if (!isStatic) {
             // 非静态文件
             if (method == 'GET') {
