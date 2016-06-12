@@ -14,8 +14,20 @@ ORM2框架
 
 # 部署
 
+[Linux]
+sudo npm install
+sudo npm start
+
+[windows]
 npm install
 npm start
+
+--- 
+
+视情况可以使用pm2托管
+
+sudo npm install pm2 -g
+pm2 start bin/www -n nblog 
 
 
 # 目的
