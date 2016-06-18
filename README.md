@@ -2,31 +2,43 @@
 
 这是一个NodeJS博客项目
 
-基于
-Express框架
+基于 
+
+Express框架 
+
 EJS模板引擎
-ORM2框架
-以及 等等.
+
+ORM2框架 
+
+以及 等等. 
 
 使用的数据库为SQLite
+
 但是由于ORM对于SQL的封装
+
 理论上切换到MySQL也没有什么问题.
 
 # 部署
 
 [Linux]
+
+
 sudo npm install
+
 sudo npm start
 
 [windows]
+
 npm install
+
 npm start
 
---- 
+---
 
 视情况可以使用pm2托管
 
 sudo npm install pm2 -g
+
 pm2 start bin/www -n nblog 
 
 
@@ -37,13 +49,23 @@ pm2 start bin/www -n nblog
 # 成果
 
 十分深刻的理解了 "异步" 的含义, 通过各种犯错, 笑.
+
+
 代码不是最佳实践,只能算是勉强可用而已.
+
+
 写权限管理模块的时候,深刻的理解了这件事的复杂性,API还是用RestFul比较好进行权限管理.
+
+
 下一步会做这方面的工作.
+
+
 
 # 作者
 
 孙韬 UESTC 2014级学生
+
+
 mrls@live.cn
 
 
