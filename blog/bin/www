@@ -14,7 +14,7 @@ var fs = require('fs');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '937');
+var port = normalizePort(process.env.PORT || '9379');
 app.set('port', port);
 
 /**
