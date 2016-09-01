@@ -163,7 +163,7 @@ router.get("/blogmanager/page/:pageid", function(req, res, next) {
                 count: count,
                 singlepagecount: 10,
                 totalpage: Math.ceil(count / 10),
-                pageurl: "/admin/articles/blogmanager/page/"
+                pageurl: "/articles/blogmanager/page/"
             };
             res.renderp('blogmanager', {
                 articles: articles,
@@ -201,7 +201,7 @@ router.get("/comment/commentmanager/page/:pageid", function(req, res, next) {
                 count: count,
                 singlepagecount: 10,
                 totalpage: Math.ceil(count / 10),
-                pageurl: "/admin/articles/comment/commentmanager/page/"
+                pageurl: "/articles/comment/commentmanager/page/"
             };
             res.renderp('commentmanager', {
                 comments: comments,
