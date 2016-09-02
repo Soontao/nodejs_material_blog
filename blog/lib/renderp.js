@@ -1,19 +1,19 @@
-module.exports = function renderp(app) {
+const renderp = app => {
     // Express app
-    app.use(function(req, res, next) {
-        req.models.setting.find({}, function(err, keys) {
+    app.use(req => {
+        const res = req.res;
+        const next = req.next;
+        req.models.setting.find({}, function(err, lines) {
             if (err) throw err;
-            res.renderp = function(template, data) {
-                data = data || {};
-                keys.forEach(function(record) {
-                    data[record.key] = JSON.parse(record.value);
-                });
-                data['sessionuser'] = req.session.user;
-                return res.render(template, data);
-
-            }
+            res.locals['sessionuser'] = req.session.user;
+            lines.forEach(record => {
+                res.locals[record.key] = JSON.parse(record.value);
+            });
+            res.renderp = res.render;
+            // 强制同步完成之后，再进入下一个路由
             next();
         });
-
     })
 }
+
+module.exports = renderp;
