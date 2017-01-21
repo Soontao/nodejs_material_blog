@@ -1,0 +1,22 @@
+{
+  "name": "blog",
+  "description": "",
+  "main": "",
+  "authors": [
+    "suntao <mrls@live.cn>"
+  ],
+  "license": "Apache",
+  "homepage": "https://github.com/Soontao/nodejs_material_blog",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "0.97.8",
+    "umeditor": "1.2.3"
+  }
+}

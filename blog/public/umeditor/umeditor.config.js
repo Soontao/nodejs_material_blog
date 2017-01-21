@@ -19,6 +19,7 @@
      * 因此，UEditor提供了针对不同页面的编辑器可单独配置的根路径，具体来说，在需要实例化编辑器的页面最顶部写上如下代码即可。当然，需要令此处的URL等于对应的配置。
      * window.UMEDITOR_HOME_URL = "/xxxx/xxxx/";
      */
+    window.UMEDITOR_HOME_URL= "/lib/umeditor/";
     var URL = window.UMEDITOR_HOME_URL || (function(){
 
         function PathStack() {
@@ -161,7 +162,7 @@
         //主题配置项,默认是default。有需要的话也可以使用如下这样的方式来自动多主题切换，当然，前提条件是themes文件夹下存在对应的主题文件：
         //现有如下皮肤:default
         //,theme:'default'
-        //,themePath:URL +"themes/"
+        ,themePath:URL +"themes/"
 
 
 
