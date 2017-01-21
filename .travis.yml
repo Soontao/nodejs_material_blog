@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- '6'
+before_script: cd blog
+deploy:
+  provider: cloudfoundry
+  api: https://api.run.pivotal.io
+  username: mrls@live.cn
+  password:
+    secure: Qfmp0E6tD6CLqfXYVLT7B31GwLnYK3HEs9xxYudB3cDXy9XnGx4pxu+IhF/qIIr1o0cLBaiCehNVI20SyXR+rLBAHkRJ4P0zQ8+JIkKqPQMI0HEBzF7yL2xlDW+vovNtq35EipZnAY7Fm0fN1G7SDp4QIgTqUAKqajV6zMCdymtocFim8e+S6qSWcX4bUFnsNg2E90LrwBxoFrvu2BM8Ck1f5Dpc48w2SwZv/WDGTE20xQD0am+FAQPoUDnRMnJ1gPm7kkNhIe/Z7PUrsYuIAH2XJJpuc7ahIEdv09YA8JqoOcsTn5WDuk7HR7cvHj2cm4GQOeTCFA6rYgG0FvQQzrEBYjffe1AyDWpZUOI7hS1lFAwo9hcabNJyqhtwvHLUFdechav/DI/WcbDbQIo3FjU/rNl8mWPzuers2TPSjKJV7ZOYeIFxVyE89076eJAOVMM5MKI0E1+SGa43j8Q9ppwZq4oAhRLilHgbvz88OxdczxJQ0c3hBossrmvBZn3KW0P2JmUsd1FdNzXsSs5Me23cer9G6cICbDn9CpB5FspyODI6bMgPBdYs/fTII8+YnRGFrsOW65T5HKUHRio7bHAJUCnPf9Iayt95ZPSgAC4QFIchV6ZUGA3UMGVNH9isiEpi24hWaM9p4bpANY2ywPNps5MuKlTarbHXfhfL2+Y=
+  organization: mrls-org
+  space: development
+  on:
+    repo: Soontao/nodejs_material_blog
