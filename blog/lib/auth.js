@@ -1,6 +1,6 @@
 module.exports = function auth(app) {
   // 通过Session记录认证信息
-  app.use(function(req, res, next) {
+  app.use(function (req, res, next) {
     if (!req.session.isinit) {
       req.session.isinit = true;
       req.session.islogin = false;
@@ -10,14 +10,15 @@ module.exports = function auth(app) {
   });
 
   // 配置
-  app.use(function(req, res, next) {
+  app.use(function (req, res, next) {
+
     var url = req.originalUrl;
     var method = req.method;
     var isStatic = false;
+
     //session user或者未注册用户
-    var user = req.session.user || {
-      usertype: 0
-    };
+    var user = req.session.user || { usertype: 0 };
+
     // 判断静态文件
     if (url.startsWith("/js") || url.startsWith("/css") || url.startsWith("/images") || url.startsWith("/umeditor") || url.startsWith("/lib") || url == "/" || url == "/favicon.ico") {
       isStatic = true;
@@ -26,7 +27,7 @@ module.exports = function auth(app) {
       // 非静态文件
       if (method == 'GET') {
         // view 
-        req.db.driver.execQuery("select * from usertypeview where viewid in (select id from view where substr(?,1,length(url)) = url) and usertypeid = ?", [url, user.usertype], function(err, views) {
+        req.db.driver.execQuery("select * from usertypeview where viewid in (select id from view where substr(?,1,length(url)) = url) and usertypeid = ?", [url, user.usertype], function (err, views) {
           if (err) throw err;
           if (views.length > 0) {
             next();
@@ -38,7 +39,7 @@ module.exports = function auth(app) {
         })
       } else if (method == 'POST') {
         // api
-        req.db.driver.execQuery("select * from usertypeapi where apiid in (select id from api where substr(?,1,length(url)) = url) and usertypeid = ?", [url, user.usertype], function(err, apis) {
+        req.db.driver.execQuery("select * from usertypeapi where apiid in (select id from api where substr(?,1,length(url)) = url) and usertypeid = ?", [url, user.usertype], function (err, apis) {
           if (err) throw err;
           if (apis.length > 0) {
             next();

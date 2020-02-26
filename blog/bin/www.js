@@ -1,21 +1,26 @@
 #!/usr/bin/env node
 
 // 依赖
-const app = require('../app'),
-    debug = require('debug')('blog:server'),
-    http = require('http'),
-    https = require('https'),
-    fs = require('fs');
+const app = require('../app')
+const http = require('http')
+const { setUpDB } = require("../lib/setup_db")
 
 const port = normalizePort(process.env.PORT || '9379');
 app.set('port', port);
 
-const server = http.createServer(app);
+setUpDB(err => {
+    if (err) { console.error(err); return; }
+    const server = http.createServer(app);
 
-server.listen(port);
+    server.listen(port);
 
-server.on('error', onError);
-server.on('listening', onListening);
+    server.on('error', onError);
+    server.on('listening', () => {
+        var addr = server.address();
+        var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+        console.info('Listening on ' + bind);
+    });
+})
 
 function normalizePort(val) {
     var port = parseInt(val, 10);
@@ -51,8 +56,3 @@ function onError(error) {
     }
 }
 
-function onListening() {
-    var addr = server.address();
-    var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-    console.info('Listening on ' + bind);
-}
